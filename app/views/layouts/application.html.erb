@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rails4bootstrap3backbone</title>
+  <title>Rails 4 realtime chat</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -24,12 +24,7 @@
     </div>
 
     <!-- Jumbotron -->
-    <div class="jumbotron">
-      <h1>Marketing stuff!</h1>
-      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-      <p><a class="btn btn-large btn-success" href="#">Get started today</a></p>
-    </div>
-
+    <%= yield(:jumbotron) %>
 
     <div class="body-content">
       <%= yield %>
