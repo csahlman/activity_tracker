@@ -1,10 +1,19 @@
+ruby '2.0.0'
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :production do 
+  gem 'pg'
+end
+
+group :development do 
+  gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -32,8 +41,22 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test, :development do 
+  gem 'rspec-rails'
+end
+
+group :test do 
+  # gem 'rspec-rails'
+  gem 'capybara', '~> 2.1.0'
+  gem "capybara-webkit"
+  gem 'database_cleaner', git: 'git://github.com/bmabey/database_cleaner.git', branch: "master"
+  gem 'factory_girl_rails'
+  # gem 'spring'
+end
+
 gem 'annotate'
 
+gem 'websocket-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

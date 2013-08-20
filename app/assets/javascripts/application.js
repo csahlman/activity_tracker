@@ -16,4 +16,8 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require backbone-min
-//= require_tree .
+//= require websocket_rails/main
+
+
+
+
