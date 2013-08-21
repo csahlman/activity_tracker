@@ -11,9 +11,9 @@ group :production do
   gem 'pg'
 end
 
-group :development do 
-  gem 'sqlite3'
-end
+# group :development do 
+
+# end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -42,6 +42,7 @@ group :doc do
 end
 
 group :test, :development do 
+  gem 'sqlite3'
   gem 'rspec-rails'
 end
 
