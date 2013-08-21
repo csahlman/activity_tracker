@@ -1,0 +1,4 @@
+<h1>Please click on the following link to activate your account.</h1>
+
+<%= link_to "Activate Your Account", 
+  account_confirmations_path(confirmation_token: @user.confirmation_token)  %>

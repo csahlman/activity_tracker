@@ -3,6 +3,16 @@ Rails4bootstrap3backbone::Application.routes.draw do
 
   resources :chatrooms, only: [ :show, :index ]
 
+  resources :users, only: [ :new, :create ]
+
+  get '/account_confirmations', to: 'account_confirmations#create', as: 'account_confirmations'
+
+  controller :sessions do 
+    delete 'sign_out' => :destroy
+  end
+
+  # resource :account_confirmations, only: [ :create ]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
