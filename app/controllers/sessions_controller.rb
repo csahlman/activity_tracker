@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   #     if @user && @user.authenticate(params[:session][:password])
 
   def create
-    puts params
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       if @user.confirmed? 
