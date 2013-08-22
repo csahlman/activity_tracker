@@ -1,0 +1,11 @@
+<%= form_tag(:password_reset, method: "put") do %>
+  <%= hidden_field_tag :token, params[:token] %>
+
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %>
+
+  <%= label_tag :password_confirmation, "Password Confirmation" %>
+  <%= password_field_tag :password_confirmation %>
+
+  <%= button_tag "Update Password" %>
+<% end %>

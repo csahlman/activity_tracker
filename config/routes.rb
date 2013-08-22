@@ -8,6 +8,7 @@ Rails4bootstrap3backbone::Application.routes.draw do
   get '/account_confirmations', to: 'account_confirmations#create', as: 'account_confirmations'
 
   resource :resend_confirmation, only: [ :new, :create ]
+  resource :password_reset, only: [ :new, :create, :edit, :update ]
 
   controller :sessions do 
     get 'sign_in' => :new

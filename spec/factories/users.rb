@@ -7,5 +7,7 @@ FactoryGirl.define do
     password "P4ssword"
     password_confirmation "P4ssword"
     confirmed_at 1.hour.ago
+    password_reset_token nil
+    password_reset_sent_at nil
   end
 end
