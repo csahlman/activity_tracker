@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821212156) do
+ActiveRecord::Schema.define(version: 20130822003807) do
 
   create_table "chatrooms", force: true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130821212156) do
     t.datetime "updated_at"
     t.boolean  "remember_password",  default: false
     t.string   "confirmation_token"
+    t.datetime "confirmed_at"
   end
 
 end

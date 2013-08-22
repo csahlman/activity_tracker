@@ -1,0 +1,8 @@
+<%= form_tag('/sign_in', method: 'post') do %>
+  
+  <%= email_field :email, nil, id: "user_email" %>
+  <%= password_field_tag :password, nil , id: "user_password" %>
+
+  <%= button_tag "Sign In!", id: "form_sign_in" %>
+
+<% end %>

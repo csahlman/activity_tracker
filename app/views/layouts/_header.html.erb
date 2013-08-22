@@ -13,6 +13,7 @@
     </li>
     <% else %>
     <li><%= link_to "Sign Up", new_user_path, data: { role: "signup" } %></li>
+    <li><%= link_to "Sign In", sign_in_path, data: { role: "signin" } %></li>
     <% end %>
   </ul>
 </div>

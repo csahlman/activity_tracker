@@ -8,6 +8,8 @@ Rails4bootstrap3backbone::Application.routes.draw do
   get '/account_confirmations', to: 'account_confirmations#create', as: 'account_confirmations'
 
   controller :sessions do 
+    get 'sign_in' => :new
+    post 'sign_in' => :create
     delete 'sign_out' => :destroy
   end
 

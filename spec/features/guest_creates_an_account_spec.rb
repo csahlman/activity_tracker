@@ -30,8 +30,6 @@ feature "Guest creates an account", js: true do
     expect(page).to have_css('.success', text: "Account confirmed")
     expect(page).to have_css('a', text: "Sign Out")
 
-    click_on "Sign Out"
-    expect(page).to have_css('.success', text: "Signed Out")
   end
 
 end

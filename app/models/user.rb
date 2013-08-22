@@ -9,12 +9,17 @@
 #  updated_at         :datetime
 #  remember_password  :boolean          default(FALSE)
 #  confirmation_token :string(255)
+#  confirmed_at       :datetime
 #
 
 class User < ActiveRecord::Base
   has_secure_password
 
   before_create :create_confirmation_token
+
+  def confirmed?
+    confirmed_at.present? 
+  end
 
   private
 
