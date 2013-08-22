@@ -20,7 +20,7 @@ class PasswordResetsController < ApplicationController
   def update
     password_hash = { password: params[:password], password_confirmation: 
       params[:password_confirmation]}
-    password_params
+    params.permit(:password, :password_confirmation)
     @user = User.find_by_password_reset_token(params[:token]) if params[:token].present?
     if @user.present? 
       if @user.update_attributes(password_hash)
@@ -34,9 +34,4 @@ class PasswordResetsController < ApplicationController
     end
   end
 
-  private
-
-    def password_params
-      params.permit(:password, :password_confirmation)
-    end
 end
