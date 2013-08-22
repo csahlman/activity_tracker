@@ -18,7 +18,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    puts params
     password_hash = { password: params[:password], password_confirmation: 
       params[:password_confirmation]}
     password_params
