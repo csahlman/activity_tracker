@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def create_password_reset
     generate_token(:password_reset_token)
-    touch(:password_reset_sent_at)
+    self.password_reset_sent_at = Time.now
     save!
   end
 
