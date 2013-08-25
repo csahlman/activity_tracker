@@ -20,6 +20,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :periods, dependent: :destroy
+
   before_create :create_confirmation_token
 
   def confirmed?

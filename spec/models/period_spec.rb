@@ -18,24 +18,27 @@ describe Period do
   context "validations " do 
     it { should validate_presence_of(:start_time) }
     it { should validate_presence_of(:end_time) }
+    it { should validate_presence_of(:user) }
 
     it "ensures that end_time > start_time " do
-      expect(Period.new(start_time: Time.now, end_time: 1.minute.ago)).not_to be_valid 
-      expect(Period.new(start_time: Time.now, end_time: Time.now)).not_to be_valid 
+      user = build_stubbed(:user)
+      expect(Period.new(start_time: Time.now, end_time: 1.minute.ago, user: user)).not_to be_valid 
+      expect(Period.new(start_time: Time.now, end_time: Time.now, user: user)).not_to be_valid 
     end
   end
 
   context "virtual attributes" do 
 
-    describe "period_preset_range" do
+    describe "period_type" do
       
       it "maps to a set of constants" do
+        user = build_stubbed(:user)
         invalid_presets = %w[foo bar baaaaaaaaz raquan] 
         invalid_presets.each do |preset|
-          expect(Period.new(period_preset_range: preset)).not_to be_valid
+          expect(user.periods.new(period_type: preset, user: user)).not_to be_valid
         end
         Period::PRESETS.each do |preset|
-          expect(Period.new(period_preset_range: preset)).to be_valid
+          expect(user.periods.new(period_type: preset, user: user)).to be_valid
         end
       end 
 
@@ -46,7 +49,7 @@ describe Period do
           earlier_today = DateTime.now.in_time_zone(user.time_zone).beginning_of_day
           Timecop.freeze(earlier_today.to_s)
 
-          period = Period.create(period_preset_range: "Day", user: user)
+          period = Period.create(period_type: "Day", user: user)
 
           expect(period.start_time).to eq Date.yesterday
         end
@@ -56,7 +59,7 @@ describe Period do
           later_today = DateTime.now.in_time_zone(user.time_zone).end_of_day
           Timecop.freeze(later_today.to_s)
           
-          period = Period.create(period_preset_range: "Day", user: user)
+          period = Period.create(period_type: "Day", user: user)
 
           expect(period.start_time).to eq Date.today
         end
@@ -66,14 +69,14 @@ describe Period do
           later_today = DateTime.now.in_time_zone(user.time_zone).end_of_day.change( { hour: 3 })
           Timecop.freeze(later_today.to_s)
 
-          period = Period.create(period_preset_range: "Day", user: user)
+          period = Period.create(period_type: "Day", user: user)
 
-          expect(period.start_time.strf_time("%H")).to eq(5)
+          expect(period.start_time.to_s.strf_time("%H")).to eq(5)
 
           later_today = DateTime.now.in_time_zone(user.time_zone).end_of_day.change( { hour: 20 })
           Timecop.freeze(later_today.to_s)
 
-          period = Period.create(period_preset_range: "Day", user: user)
+          period = Period.create(period_type: "Day", user: user)
         end
 
         

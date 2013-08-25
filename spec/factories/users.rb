@@ -9,5 +9,7 @@ FactoryGirl.define do
     confirmed_at 1.hour.ago
     password_reset_token nil
     password_reset_sent_at nil
+    start_of_day 5
+    time_zone "EST"
   end
 end

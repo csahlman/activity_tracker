@@ -12,49 +12,62 @@
 #
 
 class Period < ActiveRecord::Base
-  attr_accessor :period_preset_range
-
   belongs_to :user
 
   PRESETS = %w[Day Week Month Custom]
 
-  # validates :period_preset_range, inclusion: { in: PRESETS }
+  validates :period_type, inclusion: { in: PRESETS }
 
-  # validate :end_time_greater_than_start_time
+  validates_presence_of :start_time, :end_time, :user
 
-  validates_presence_of :start_time, :end_time
+  validate :end_time_greater_than_start_time
 
+  before_validation :set_start_and_end_time
 
-  def period_preset_range=(period)
-    unless PRESETS.include?(period)
-      errors.add(:period_type, "must be in the list") 
-    end
-    self.period_type = PRESETS[period]
-    self.start_time = set_start_time(user.start_of_day, user.time_zone)
-    self.end_time = set_end_time(user.start_of_day, user.time_zone)
-    if self.start_time >= self.end_time
-      errors.add(:start_time, "must be before end time") 
-    end
-  end
-
-  def period_preset_range
-    
-  end
+  # def period_type=(period)
+  #   unless PRESETS.include?(period)
+  #     errors.add(:period_type, "must be in the list") 
+  #   end
+  #   self.period_type = PRESETS[period.to_s].to_s
+  #   self.start_time = set_start_time(user.start_of_day, user.time_zone)
+  #   self.end_time = set_end_time(user.start_of_day, user.time_zone)
+  #   if self.start_time >= self.end_time
+  #     errors.add(:start_time, "must be before end time") 
+  #   end
+  # end
 
   protected
 
     def set_start_time(start_of_day, time_zone)
-      
+      if DateTime.now.in_time_zone(time_zone) < DateTime.now.in_time_zone.change({ hour: start_of_day })
+        DateTime.yesterday.in_time_zone(time_zone).change({ hour: start_of_day })
+      else
+        DateTime.now.in_time_zone(time_zone).change({ hour: start_of_day })
+      end
     end
 
     def set_end_time(start_of_day, time_zone)
-      
+      if DateTime.now.in_time_zone(time_zone) < DateTime.now.in_time_zone.change({ hour: start_of_day })
+        DateTime.now.in_time_zone(time_zone).change({ hour: start_of_day })
+      else
+        DateTime.tomorrow.in_time_zone(time_zone).change({ hour: start_of_day })
+      end
     end
 
   private
 
+    def set_start_and_end_time
+      case period_type
+      when "Day"
+        self.start_time = set_start_time(user.start_of_day, user.time_zone)
+        self.end_time = set_end_time(user.start_of_day, user.time_zone) 
+      end
+    end
+
     def end_time_greater_than_start_time
-      errors.add(:start_time, "Must be before end date") unless start_time < end_time 
+      if start_time.present? && end_time.present?
+        errors.add(:start_time, "Must be before end date") unless start_time < end_time 
+      end
     end
 
 end
