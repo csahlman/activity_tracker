@@ -19,8 +19,21 @@ describe Period do
     describe "period_preset_range" do
       
       it "maps to a set of constants" do
-         
+        invalid_presets = %[foo bar baaaaaaaaz raquan] 
+        invalid_presets.each do |preset|
+          expect(TimePeriod.new(period_preset_range: preset)).not_to be_valid
+        end
+        Period::PRESETS.each do |preset|
+          expect(TimePeriod.new(period_preset_range: preset)).to be_valid
+        end
       end 
+
+      it "sets the start time and end time depending on user preferences" do
+        user = create(:user, time_zone: 'MST', start_of_day: 5)
+        period = Period.new(period_preset_range: "Day", user: user)
+
+         
+      end
       
        
     end
