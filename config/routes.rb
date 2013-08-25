@@ -10,6 +10,10 @@ Rails4bootstrap3backbone::Application.routes.draw do
   resource :resend_confirmation, only: [ :new, :create ]
   resource :password_reset, only: [ :new, :create, :edit, :update ]
 
+  resources :dashboards, only: [ :index ]
+
+  resources :periods, only: [ :create ]
+
   controller :sessions do 
     get 'sign_in' => :new
     post 'sign_in' => :create

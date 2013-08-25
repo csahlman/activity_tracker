@@ -17,6 +17,16 @@
 //= require bootstrap.min
 //= require backbone-min
 //= require websocket_rails/main
+//= require activity_tracker
+//= require_tree ./routers
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_self
+
+$(document).ready(function() {
+  window.Tracker.initialize();
+});
 
 
 

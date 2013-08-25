@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       if @user.confirmed? 
         sign_in @user
-        redirect_to root_path, success: "Successfully signed in"
+        redirect_to dashboards_path, success: "Successfully signed in"
       else
         flash.now[:error] = "Account not confirmed, please click 
           below to resend instructions"

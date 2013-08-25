@@ -40,6 +40,7 @@ feature "User signs in and out" do
 
     click_on "Sign Out"
     expect(page).to have_css('.success', text: "Signed Out")
+    expect(current_path).to eq(dashboards_path)
   end
 
 end
