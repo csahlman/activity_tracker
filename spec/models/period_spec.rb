@@ -14,17 +14,28 @@
 require 'spec_helper'
 
 describe Period do
+
+  context "validations " do 
+    it { should validate_presence_of(:start_time) }
+    it { should validate_presence_of(:end_time) }
+
+    it "ensures that end_time > start_time " do
+      expect(Period.new(start_time: Time.now, end_time: 1.minute.ago)).not_to be_valid 
+      expect(Period.new(start_time: Time.now, end_time: Time.now)).not_to be_valid 
+    end
+  end
+
   context "virtual attributes" do 
 
     describe "period_preset_range" do
       
       it "maps to a set of constants" do
-        invalid_presets = %[foo bar baaaaaaaaz raquan] 
+        invalid_presets = %w[foo bar baaaaaaaaz raquan] 
         invalid_presets.each do |preset|
-          expect(TimePeriod.new(period_preset_range: preset)).not_to be_valid
+          expect(Period.new(period_preset_range: preset)).not_to be_valid
         end
         Period::PRESETS.each do |preset|
-          expect(TimePeriod.new(period_preset_range: preset)).to be_valid
+          expect(Period.new(period_preset_range: preset)).to be_valid
         end
       end 
 
@@ -38,7 +49,6 @@ describe Period do
           period = Period.create(period_preset_range: "Day", user: user)
 
           expect(period.start_time).to eq Date.yesterday
-          # expect(period.start_time).to eq(DateTime.24.hours.ago.change( { hour: 5 } )) 
         end
 
         it "sets the current day if the current time is greater than or equal to start_of_day" do
