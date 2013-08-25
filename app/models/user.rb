@@ -12,6 +12,9 @@
 #  confirmed_at           :datetime
 #  password_reset_sent_at :datetime
 #  password_reset_token   :string(255)
+#  time_zone              :string(255)      default("EST")
+#  start_of_day           :integer          default(4)
+#  period_preference      :string(255)      default("Day")
 #
 
 class User < ActiveRecord::Base

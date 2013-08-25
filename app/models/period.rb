@@ -12,4 +12,16 @@
 #
 
 class Period < ActiveRecord::Base
+  attr_accessor :period_preset_range
+
+  belongs_to :user
+
+  def period_preset_range=(period)
+        
+  end
+
+  def period_preset_range
+    
+  end
+
 end

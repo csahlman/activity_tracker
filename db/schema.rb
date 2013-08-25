@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130825130626) do
+ActiveRecord::Schema.define(version: 20130825132938) do
 
   create_table "chatrooms", force: true do |t|
     t.string   "name"
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20130825130626) do
     t.datetime "confirmed_at"
     t.datetime "password_reset_sent_at"
     t.string   "password_reset_token"
+    t.string   "time_zone",              default: "EST"
+    t.integer  "start_of_day",           default: 4
+    t.string   "period_preference",      default: "Day"
   end
 
 end
