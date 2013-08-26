@@ -2,13 +2,10 @@ require "date"
 
 module CalendarHelper
 
-  def calendar_month(options = {})
+  def calendar(options = {}, calendar_type = :month)
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
     
-    days_of_the_week = Date::DAYNAMES.dup
-    days_of_the_week_indices = (0..6).to_a
-    month_names = Date::MONTHNAMES.dup.delete_if { |month| month.nil? } 
 
     defaults = {
       :table_class => "calendar",
@@ -20,11 +17,30 @@ module CalendarHelper
 
     options = default.merge options
 
-    first_day_of_month = Date.civil(options[:year], options[:day], 1)
-    last_day_of_month = Date.civil(options[:year], options[:day], -1)
+    day_names = days_of_the_week(options.first_day_of_the_week) 
+    days_of_the_week_indices = (0..6).to_a
+    month_names = Date::MONTHNAMES.dup.delete_if { |month| month.nil? } 
+
+
+    first_day_of_month = Date.civil(options[:year], options[:week], 1)
+    last_day_of_month = Date.civil(options[:year], options[:week], -1)
     days_in_the_month = last_day_of_month.day  
+    number_of_rows_in_calendar_month = get_num_rows_in_month(options[:month], 
+      options[:year], options[:first_day_of_the_week])
+
+    cal = "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
+    cal << "<thead>"
 
 
+  end
+
+  def days_of_the_week(first_day_of_week_index)
+    days = Date::DAYNAMES
+    ordered_days = []
+    7.times do |i|
+      ordered_days.push(days[first_day_of_week_index + i - 7])
+    end
+    ordered_days
   end
 
   def last_day_of_the_week(day)
@@ -34,5 +50,20 @@ module CalendarHelper
   def weekend?(date)
     [0, 6].include?(date.wday) 
   end 
+
+  def get_num_rows_in_month(month, year, first_day_of_week_index)
+    first_day_of_month = Date.civil(year, month, 1) 
+    days_in_the_month = Date.civil(year, month, -1).mday
+    offset = get_difference_of_days(first_day_of_week_index, first_day_of_month.wday)
+    weeks = ((offset + days_in_the_month.to_f) / 7).ceil
+  end
+
+  def get_difference_of_days(first, second)
+    if first > second
+      second + (7 - first) 
+    else
+      second - first 
+    end
+  end
 
 end
