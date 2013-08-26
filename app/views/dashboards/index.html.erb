@@ -1,6 +1,8 @@
 <h1>Welcome Back, <%= current_user.email %></h1>
+<%= raw calendar({year: 2013, month: 8}) %>
 
 <%= simple_form_for @period do |f| %>
+
   
   <%= f.input :period_type, as: :select, collection: Period::PRESETS, input_html: 
     { id: 'time_period_select' } %> 

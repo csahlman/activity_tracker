@@ -6,6 +6,7 @@ module CalendarHelper
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
     
+    month_names = Date::MONTHNAMES.dup.delete_if { |month| month.nil? } 
 
     defaults = {
       :table_class => "calendar",
@@ -15,21 +16,29 @@ module CalendarHelper
       :calendar_title => month_names[options[:month]] 
     }
 
-    options = default.merge options
+    options = defaults.merge options
 
-    day_names = days_of_the_week(options.first_day_of_the_week) 
+    day_names = days_of_the_week(options[:first_day_of_the_week]) 
     days_of_the_week_indices = (0..6).to_a
-    month_names = Date::MONTHNAMES.dup.delete_if { |month| month.nil? } 
 
 
-    first_day_of_month = Date.civil(options[:year], options[:week], 1)
-    last_day_of_month = Date.civil(options[:year], options[:week], -1)
+    first_day_of_month = Date.civil(options[:year], options[:month], 1)
+    last_day_of_month = Date.civil(options[:year], options[:month], -1)
     days_in_the_month = last_day_of_month.day  
     number_of_rows_in_calendar_month = get_num_rows_in_month(options[:month], 
       options[:year], options[:first_day_of_the_week])
 
     cal = "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
-    cal << "<thead>"
+    cal << "<thead>#{options[:calendar_title]}</thead>"
+    cal << "<tbody>"
+    number_of_rows_in_calendar_month.times do 
+      cal << "<tr>"
+      7.times do |i|
+        cal << "<td>#{day_names[i]}</td>" 
+      end
+      cal << "</tr><br>"
+    end
+    cal << "</tbody></table>" 
 
 
   end
@@ -65,5 +74,11 @@ module CalendarHelper
       second - first 
     end
   end
+
+  # class Engine < Rails::Engine # :nodoc:
+  #   ActiveSupport.on_load(:action_view) do
+  #     include CalendarHelper
+  #   end
+  # end if defined? Rails::Engine
 
 end

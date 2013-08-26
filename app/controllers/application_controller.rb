@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :error
 
   include SessionsHelper
+
+  include CalendarHelper
+
+  helper_method :calendar
 end
