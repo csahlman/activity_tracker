@@ -24,22 +24,11 @@ class Period < ActiveRecord::Base
 
   before_validation :set_start_and_end_time
 
-  # def period_type=(period)
-  #   unless PRESETS.include?(period)
-  #     errors.add(:period_type, "must be in the list") 
-  #   end
-  #   self.period_type = PRESETS[period.to_s].to_s
-  #   self.start_time = set_start_time(user.start_of_day, user.time_zone)
-  #   self.end_time = set_end_time(user.start_of_day, user.time_zone)
-  #   if self.start_time >= self.end_time
-  #     errors.add(:start_time, "must be before end time") 
-  #   end
-  # end
 
   protected
 
     def set_start_time(start_of_day, time_zone)
-      if DateTime.now.in_time_zone(time_zone) < DateTime.now.in_time_zone.change({ hour: start_of_day })
+      if DateTime.now.in_time_zone(time_zone) < DateTime.now.in_time_zone(time_zone).change({ hour: start_of_day })
         DateTime.yesterday.in_time_zone(time_zone).change({ hour: start_of_day })
       else
         DateTime.now.in_time_zone(time_zone).change({ hour: start_of_day })
@@ -47,7 +36,7 @@ class Period < ActiveRecord::Base
     end
 
     def set_end_time(start_of_day, time_zone)
-      if DateTime.now.in_time_zone(time_zone) < DateTime.now.in_time_zone.change({ hour: start_of_day })
+      if DateTime.now.in_time_zone(time_zone) < DateTime.now.in_time_zone(time_zone).change({ hour: start_of_day })
         DateTime.now.in_time_zone(time_zone).change({ hour: start_of_day })
       else
         DateTime.tomorrow.in_time_zone(time_zone).change({ hour: start_of_day })
