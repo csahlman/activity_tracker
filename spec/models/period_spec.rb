@@ -47,9 +47,7 @@ describe Period do
         it "sets the day period for the day before if the current time is less than user's start_of_day" do
           user = create(:user, time_zone: 'EST', start_of_day: 5, period_preference: 'Day')
           earlier_today = DateTime.now.in_time_zone(user.time_zone).change({ hour: 2})
-          Timecop.freeze(earlier_today.to_s)
-
-          puts earlier_today < DateTime.now.in_time_zone(user.time_zone).change({hour:5})
+          Timecop.freeze(earlier_today.to_time)
 
           period = Period.create(period_type: "Day", user: user)
 
@@ -59,7 +57,7 @@ describe Period do
         it "sets the current day if the current time is greater than or equal to start_of_day" do
           user = create(:user, time_zone: 'EST', start_of_day: 5, period_preference: 'Day')
           later_today = DateTime.now.in_time_zone(user.time_zone).end_of_day
-          Timecop.freeze(later_today.to_default_s)
+          Timecop.freeze(later_today.to_time)
           
           period = Period.create(period_type: "Day", user: user)
           expect(period.start_time.strftime("%Y-%M-%D")).to eq(Date.today.strftime("%Y-%M-%D"))
@@ -67,22 +65,37 @@ describe Period do
 
         it "sets the hour of the day equal to the start_of_day of user if present, otherwise 5" do
           user = create(:user, time_zone: 'EST', start_of_day: 5, period_preference: 'Day')
-          later_today = DateTime.now.in_time_zone(user.time_zone).end_of_day.change( { hour: 3 })
-          Timecop.freeze(later_today.to_s)
+          later_today = DateTime.now.in_time_zone(user.time_zone).change( { hour: 3 })
+          Timecop.freeze(later_today.to_time)
 
           period = Period.create(period_type: "Day", user: user)
 
           expect(period.start_time.in_time_zone(user.time_zone).strftime("%H")).to eq("05")
 
-          later_today = DateTime.now.in_time_zone(user.time_zone).end_of_day.change( { hour: 20 })
-          Timecop.freeze(later_today.to_s)
+          later_today = DateTime.now.in_time_zone(user.time_zone).change( { hour: 20 })
+          Timecop.freeze(later_today.to_time)
 
           period = Period.create(period_type: "Day", user: user)
         end
 
-        
+        describe "custom time period" do
+
+          it "is invalid without custom start and end times" do
+             user = build_stubbed(:user, time_zone: 'MST', start_of_day: 5, period_preference: 'Day')
+             expect(Period.new(period_type: "Custom", user: user)).not_to be_valid
+          end
+
+          it "sets the start and end time depending on the time zone" do
+            user = create(:user, time_zone: 'MST', start_of_day: 5, period_preference: 'Day')
+            later_today = DateTime.now.in_time_zone(user.time_zone).change( { hour: 3 })
+            Timecop.freeze(later_today.to_time)
+
+            period = Period.create(period_type: "Custom", user: user)
+          end
+          
+        end
+
       end
-      
        
     end
 

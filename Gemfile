@@ -51,7 +51,7 @@ end
 group :test do 
   gem 'capybara', '~> 2.1.0'
   gem "capybara-webkit"
-  gem 'database_cleaner', git: 'git://github.com/bmabey/database_cleaner.git', branch: "master"
+  gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git', branch: "master"
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'timecop'

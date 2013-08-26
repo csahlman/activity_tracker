@@ -2,8 +2,12 @@
 
 <%= simple_form_for @period do |f| %>
   
-  <%= f.input :period_type, input_html: 
+  <%= f.input :period_type, as: :select, collection: Period::PRESETS, input_html: 
     { id: 'time_period_select' } %> 
+
+  <%= f.input :start_time, input_html: { id: 'input_start_time'} %>
+  <%= f.input :end_time, input_html: { id: 'input_end_time' } %>
+
 
 
 <% end %>

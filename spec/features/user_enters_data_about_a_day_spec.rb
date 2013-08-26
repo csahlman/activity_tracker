@@ -1,12 +1,20 @@
 require "spec_helper"
 
-feature "User enters data about the current day" do 
+feature "User enters data about the current day", js: true do 
 
   scenario "and sees the result in their dashboard" do 
-    user = create(:user, confirmed_at: 1.day.ago)
+    user = create(:user, confirmed_at: 1.day.ago, start_of_day: 5)
     sign_in user
 
-    select "Day", from: "time_period_select"    
+    # mid_day = Timecop.freeze(DateTime.now.in_time_zone(user.time_zone).change( { hour: 10 }).to_time)
+
+    select "Day", from: "time_period_select"
+    expect(page).to have_content DateTime.now.in_time_zone(user.time_zone).
+      change({hour: user.start_of_day}).strftime("%Y-%M-%D")
+    expect(page).to have_content DateTime.tomorrow.in_time_zone(user.time_zone).
+      change({hour: user.start_of_day}).strftime("%Y-%M-%D") 
+
+
     select "Mood Entry", from: "tracker_type"
 
     expect(page).to have_content("Energy Level")

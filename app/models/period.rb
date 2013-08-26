@@ -14,7 +14,7 @@
 class Period < ActiveRecord::Base
   belongs_to :user
 
-  PRESETS = %w[Day Week Month Custom]
+  PRESETS = %w[Day Custom]  # week, month, custom
 
   validates :period_type, inclusion: { in: PRESETS }
 
@@ -50,6 +50,9 @@ class Period < ActiveRecord::Base
       when "Day"
         self.start_time = set_start_time(user.start_of_day, user.time_zone)
         self.end_time = set_end_time(user.start_of_day, user.time_zone) 
+      when "Custom"
+        self.start_time = set_start_time(self.custom_start_time, user.time_zone) 
+        self.end_time = set_end_time(self.custom_end_time, user.time_zone)
       end
     end
 
