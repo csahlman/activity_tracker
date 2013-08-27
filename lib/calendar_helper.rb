@@ -24,9 +24,14 @@ module CalendarHelper
 
     first_day_of_month = Date.civil(options[:year], options[:month], 1)
     last_day_of_month = Date.civil(options[:year], options[:month], -1)
-    days_in_the_month = last_day_of_month.day  
+    days_in_the_month = last_day_of_month.day
     number_of_rows_in_calendar_month = get_num_rows_in_month(options[:month], 
       options[:year], options[:first_day_of_the_week])
+    offset_of_first_day_of_month = get_difference_of_days(options[:first_day_of_the_week], first_day_of_month.wday)
+
+    calendar_days_array = build_calendar_days_array(options[:month], options[:year], number_of_rows_in_calendar_month,
+      offset_of_first_day_of_month)
+
 
     cal = "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
     cal << "<thead>#{options[:calendar_title]}</thead>"
@@ -41,6 +46,24 @@ module CalendarHelper
     cal << "</tbody></table>" 
 
 
+  end
+
+  def build_calendar_days_array(month, year, num_rows, offset_of_first_day)
+    days_array = []
+    days_in_the_month = Date.new(year, month, -1).mday
+    num_days_in_calendar_month = num_rows * 7
+    days_in_next_month = (num_rows * 7) - days_in_the_month - offset_of_first_day
+    offset_of_first_day.downto(1) do |i|
+      days_array.push(Date.new(year, month, 1) - i)
+    end
+    1.upto(days_in_the_month) do |i|
+      days_array.push(Date.new(year, month, i))
+    end
+    1.upto(days_in_next_month) do |i|
+      days_array.push(Date.new(year, month, -1) + i)
+    end
+    puts days_array
+    days_array
   end
 
   def days_of_the_week(first_day_of_week_index)
