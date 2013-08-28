@@ -2,7 +2,7 @@ require "date"
 
 module CalendarHelper
 
-  def calendar(options = {}, calendar_type = :month)
+  def calendar(options = {}, calendar_type = :month, time_zone = "UTC")
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
     
@@ -31,18 +31,25 @@ module CalendarHelper
 
     calendar_days_array = build_calendar_days_array(options[:month], options[:year], number_of_rows_in_calendar_month,
       offset_of_first_day_of_month)
+    current_day = DateTime.now.in_time_zone(time_zone).mday
 
-
-    cal = "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
-    cal << "<thead>#{options[:calendar_title]}</thead>"
+    cal = "<h1 class='title'>#{options[:calendar_title]}</h1>"
+    cal << "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
     cal << "<tbody>"
-    number_of_rows_in_calendar_month.times do 
-      cal << "<tr>"
-      7.times do |i|
-        cal << "<td>#{day_names[i]}</td>" 
-      end
-      cal << "</tr><br>"
+    cal << "<tr>"
+    day_names.each do |name|
+      cal << "<th>#{name}</th>"
     end
+    cal << "</tr>"
+
+    calendar_days_array.each_with_index do |day, index|
+      cal << "<tr>" if day.wday == options[:first_day_of_the_week]
+      day.mday == current_day ? cal << "<td id='y_#{day.year}_m_#{day.month}_d_#{day.mday}'><div class='today'>" : 
+        cal << "<td id='y_#{day.year}_m_#{day.month}_d_#{day.mday}'><div>"
+      cal << "#{day.mday}</div></td>"
+      cal << "</tr>" if day.wday == last_day_of_the_week(options[:first_day_of_the_week])
+    end
+
     cal << "</tbody></table>" 
 
 
