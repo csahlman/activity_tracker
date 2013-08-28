@@ -13,7 +13,7 @@ module CalendarHelper
       :table_id => "calendar_#{options[:year]}_#{options[:month]}",
       :first_day_of_the_week => 0, # sunday
       :highlight_today => true,
-      :calendar_title => month_names[options[:month]] 
+      :calendar_title => month_names[options[:month] - 1] 
     }
 
     options = defaults.merge options
@@ -31,7 +31,7 @@ module CalendarHelper
 
     calendar_days_array = build_calendar_days_array(options[:month], options[:year], number_of_rows_in_calendar_month,
       offset_of_first_day_of_month)
-    current_day = DateTime.now.in_time_zone(time_zone).mday
+    current_day = DateTime.now.in_time_zone(time_zone)
 
     cal = "<h1 class='title'>#{options[:calendar_title]}</h1>"
     cal << "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
@@ -44,8 +44,14 @@ module CalendarHelper
 
     calendar_days_array.each_with_index do |day, index|
       cal << "<tr>" if day.wday == options[:first_day_of_the_week]
-      day.mday == current_day ? cal << "<td id='y_#{day.year}_m_#{day.month}_d_#{day.mday}'><div class='today'>" : 
-        cal << "<td id='y_#{day.year}_m_#{day.month}_d_#{day.mday}'><div>"
+      cal << "<td id='y_#{day.year}_m_#{day.month}_d_#{day.mday}'>"
+      if day.mday == current_day.mday && day.month == current_day.month
+        cal << "<div class='today current_month'>" 
+      elsif first_day_of_month.month == day.month
+        cal << "<div class='current_month'>" 
+      else 
+        cal << "<div>"
+      end
       cal << "#{day.mday}</div></td>"
       cal << "</tr>" if day.wday == last_day_of_the_week(options[:first_day_of_the_week])
     end

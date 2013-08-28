@@ -7,6 +7,11 @@
     width: 100%;
     min-width: 960px;
     border-collapse: collapse;
+    color: gray;
+}
+
+.current_month {
+    color: #000;
 }
 
 .calendar tbody tr:first-child th {
