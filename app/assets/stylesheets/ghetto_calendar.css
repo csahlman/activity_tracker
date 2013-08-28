@@ -9,12 +9,16 @@
     font-weight: bold;
 }
 
-.calendar_header > a {
+.calendar_header a {
     padding: 0 20px;
     color: gray;
     font-size: 140%;
     text-decoration: none;
     cursor: pointer;
+}
+
+.calendar_header a:hover {
+    text-decoration: underline;
 }
 
 .calendar {

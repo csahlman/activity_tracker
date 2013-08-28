@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  include CalendarHelper
+  # include CalendarHelper
 
-  helper_method :calendar
+  helper :calendar
 end

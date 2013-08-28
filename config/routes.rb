@@ -12,6 +12,8 @@ Rails4bootstrap3backbone::Application.routes.draw do
 
   resources :dashboards, only: [ :index ]
 
+  resources :activities, only: [ :index ]
+
   resources :periods, only: [ :create ]
 
   controller :sessions do 
