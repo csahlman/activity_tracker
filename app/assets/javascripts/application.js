@@ -22,6 +22,7 @@
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
+//= require calendar
 //= require_self
 
 $(document).ready(function() {

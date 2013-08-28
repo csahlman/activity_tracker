@@ -1,5 +1,7 @@
 <h1>Welcome Back, <%= current_user.email %></h1>
-<%= raw calendar({year: 2013, month: 9, first_day_of_the_week: 2}) %>
+
+<%= raw calendar({year: DateTime.now.year, month: DateTime.now.month,
+   first_day_of_the_week: 0}) %>
 
 <%= simple_form_for @period do |f| %>
 

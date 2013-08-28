@@ -1,5 +1,20 @@
-.title {
+.calendar_header {
+    width: 100%;
     text-align: center;
+}
+
+.calendar_header .title {
+    margin: 0 auto;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.calendar_header > a {
+    padding: 0 20px;
+    color: gray;
+    font-size: 140%;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .calendar {
@@ -10,8 +25,22 @@
     color: gray;
 }
 
+
+div.today {
+    background: #E9EFF7;
+    height: 100%;
+    color: gray;
+} 
+
+div.today.current_month {
+    background: #E9EFF7;
+    height: 100%;
+    color: #000;
+} 
+
 .current_month {
     color: #000;
+    font-weight: bold;
 }
 
 .calendar tbody tr:first-child th {
@@ -46,8 +75,3 @@
     color: #2C2C2C;
     padding: 5px 5px 0 0;
 }
-
-div.today {
-    background: #E9EFF7;
-    height: 100%;
-} 

@@ -33,7 +33,11 @@ module CalendarHelper
       offset_of_first_day_of_month)
     current_day = DateTime.now.in_time_zone(time_zone)
 
-    cal = "<h1 class='title'>#{options[:calendar_title]}</h1>"
+    cal = "<div class='calendar_header'>"
+    cal << "<a href='#' id='prev_month' data-cur-month='#{options[:month]}'><<</a>"
+    cal << "<span class='title'>#{options[:calendar_title]} #{options[:year]}</span>"
+    cal << "<a href='#' id='next_month'>>></a>"
+    cal << "</div>"
     cal << "<table id='#{options[:table_id]}' class='#{options[:table_class]}'>"
     cal << "<tbody>"
     cal << "<tr>"
@@ -75,7 +79,6 @@ module CalendarHelper
     1.upto(days_in_next_month) do |i|
       days_array.push(Date.new(year, month, -1) + i)
     end
-    puts days_array
     days_array
   end
 
