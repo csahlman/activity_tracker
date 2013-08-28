@@ -2,9 +2,9 @@ require "date"
 
 module CalendarHelper
 
-  def calendar(options = {}, calendar_type = :month, time_zone = "UTC")
-    raise(ArgumentError, "No year given")  unless options.has_key?(:year)
-    raise(ArgumentError, "No month given") unless options.has_key?(:month)
+  def calendar(options = {year: Date.today.year, month: Date.today.month}, calendar_type = :month, time_zone = "UTC")
+    # raise(ArgumentError, "No year given")  unless options.has_key?(:year)
+    # raise(ArgumentError, "No month given") unless options.has_key?(:month)
 
     Calendar.new(self, options).draw_table(calendar_type) 
   end
@@ -12,6 +12,8 @@ module CalendarHelper
   class Calendar
     attr_accessor :view, :month, :year, :first_day_of_the_week, :highlight_today, :today, :date
     MONTH_NAMES = Date::MONTHNAMES.dup
+
+    delegate :content_tag, :link_to, to: :view
 
     def initialize(view, options = {})
       @view = view 
@@ -30,30 +32,15 @@ module CalendarHelper
       }
     end
 
-    # DAY_NAMES = self.days_of_the_week(0)
-
-
-    # options = {
-    #   :table_class => "calendar",
-    #   :table_id => "calendar_#{@year}_#{@month}",
-    #   :first_day_of_the_week => @first_day_of_the_week, # sunday
-    #   :highlight_today => true,
-    #   :calendar_title => MONTH_NAMES[1] 
-    # }
-
-    delegate :content_tag, to: :view
-    delegate :link_to, to: :view
-
-    # options = defaults.merge @options
-
     def draw_table(calendar_type)
       header = draw_header
       table = content_tag :table, class: @options[:table_class], id: @options[:table_id] do 
-        day_labels + week_rows
+        content_tag :tbody do 
+          week_rows 
+        end.html_safe
       end.html_safe
       header + table
     end
-
 
   private 
 
@@ -69,32 +56,41 @@ module CalendarHelper
     end
 
     def day_labels
+      html = ""
       content_tag :tr do 
         days_of_the_week(@first_day_of_the_week).each do |day|
-          content_tag :td, day
-        end.join.html_safe
+          html.concat (content_tag :th, day).html_safe
+        end
+        html.html_safe
       end.html_safe
     end
 
     def week_rows
-      content_tag :h1, "foobar" 
+      weeks.map do |week|
+        content_tag :tr do 
+          week.map { |day| day_cell(day) }.join.html_safe
+        end
+      end.join.html_safe
     end
 
-    def build_calendar_days_array(month, year, num_rows, offset_of_first_day)
-      days_array = []
-      days_in_the_month = Date.new(year, month, -1).mday
-      num_days_in_calendar_month = num_rows * 7
-      days_in_next_month = (num_rows * 7) - days_in_the_month - offset_of_first_day
-      offset_of_first_day.downto(1) do |i|
-        days_array.push(Date.new(year, month, 1) - i)
-      end
-      1.upto(days_in_the_month) do |i|
-        days_array.push(Date.new(year, month, i))
-      end
-      1.upto(days_in_next_month) do |i|
-        days_array.push(Date.new(year, month, -1) + i)
-      end
-      days_array
+    def weeks
+      start_day = days_of_the_week(@first_day_of_the_week)[0].parameterize.underscore.to_sym
+      first = @date.beginning_of_month.beginning_of_week(start_day)
+      last = @date.end_of_month.end_of_week(start_day)
+      (first..last).to_a.in_groups_of(7)
+    end
+
+    def day_cell(day)
+      content_tag :td do 
+        content_tag :div, day.mday, class: day_classes(day)
+      end.html_safe 
+    end
+
+    def day_classes(day)
+      day_classes = []
+      day_classes << "current_month" if day.month == @date.month
+      day_classes << "today" if day == Date.today 
+      day_classes.join " "
     end
 
     def days_of_the_week(first_day_of_week_index)
@@ -115,8 +111,8 @@ module CalendarHelper
     end 
 
     def get_num_rows_in_month(month, year, first_day_of_week_index)
-      first_day_of_month = Date.civil(year, month, 1) 
-      days_in_the_month = Date.civil(year, month, -1).mday
+      first_day_of_month = Date.new(year, month, 1) 
+      days_in_the_month = Date.new(year, month, -1).mday
       offset = get_difference_of_days(first_day_of_week_index, first_day_of_month.wday)
       weeks = ((offset + days_in_the_month.to_f) / 7).ceil
     end
