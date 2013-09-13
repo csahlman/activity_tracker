@@ -1,7 +1,7 @@
 Rails4bootstrap3backbone::Application.routes.draw do
   root to: 'pages#home'
 
-  resources :chatrooms, only: [ :show, :index ]
+  resources :forums, only: [ :show, :index ]
 
   resources :users, only: [ :new, :create ]
 

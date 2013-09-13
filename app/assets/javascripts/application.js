@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular.min
+//= require bss_forum
 //= require csrf
 //= require bootstrap.min
 //= require_tree ./directives

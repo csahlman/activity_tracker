@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rails 4 realtime chat</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>Startup Institute Alumni Portal</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,14 +21,16 @@
     <%= yield(:jumbotron) %>
 
     <div class="body-content">
+      
       <%= yield %>
+      <ng:view></ng:view>
 
 
     </div><!-- /.body-content -->
 
     <!-- Site footer -->
     <div class="footer">
-      <p>&copy; Company 2013</p>
+      <p>Startup Institute 2013</p>
     </div>
 
   </div> <!-- /container -->
