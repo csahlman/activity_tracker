@@ -12,12 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore.min
-//= require turbolinks
+//= require angular.min
+//= require csrf
 //= require bootstrap.min
-//= require backbone-min
-//= require websocket_rails/main
-
+//= require_tree ./directives
+//= require_tree ./filters
+//= require_tree ./factories
+//= require_tree ./services
+//= require_tree ./controllers
 
 
 
