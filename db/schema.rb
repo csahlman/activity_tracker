@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822101931) do
+ActiveRecord::Schema.define(version: 20130914180752) do
 
   create_table "chatrooms", force: true do |t|
     t.string   "name"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20130822101931) do
   end
 
   add_index "chatrooms", ["name"], name: "index_chatrooms_on_name", unique: true
+
+  create_table "company_informations", force: true do |t|
+    t.string   "area"
+    t.string   "type"
+    t.integer  "development_cost"
+    t.integer  "legal_cost"
+    t.integer  "office_space_cost"
+    t.string   "business_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"

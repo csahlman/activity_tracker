@@ -11,7 +11,10 @@ angular.module('venture').config ($httpProvider) ->
 
 angular.module('venture').config(($routeProvider) ->
   $routeProvider.when('/',
-    controller: 'FormsCtrl'
+    controller: 'StartCtrl'
     templateUrl: '/assets/forms/start.html'
+  ).when('/costs',
+    controller: 'CostsCtrl'
+    templateUrl: '/assets/forms/costs.html'
   )
 )

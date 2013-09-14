@@ -18,6 +18,11 @@ Rails4bootstrap3backbone::Application.routes.draw do
     root to: 'forums#index'
   end
 
+  namespace :api do 
+    get '/get_form_data', to: 'form_datas#show'
+    put '/save_data', to: 'form_datas#update'
+  end
+
   # resource :account_confirmations, only: [ :create ]
 
   # The priority is based upon order of creation: first created -> highest priority.

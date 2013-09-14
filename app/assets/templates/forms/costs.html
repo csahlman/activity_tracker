@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-8">
 
-    <form class="form-horizontal" name="calculator" ng-submit="continue()">
+    <form class="form-horizontal" name="calculator" ng-submit="saveState()">
+
+      <h1>{{formData.business_type}} in {{formData.area}}</h1>
 
       <div class="form-group">
         <label class="col-lg-2 control-label" for="area">
