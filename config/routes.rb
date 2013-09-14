@@ -1,8 +1,6 @@
 Rails4bootstrap3backbone::Application.routes.draw do
   root to: 'pages#home'
 
-  resources :forums, only: [ :show, :index ]
-
   resources :users, only: [ :new, :create ]
 
   get '/account_confirmations', to: 'account_confirmations#create', as: 'account_confirmations'
@@ -14,6 +12,10 @@ Rails4bootstrap3backbone::Application.routes.draw do
     get 'sign_in' => :new
     post 'sign_in' => :create
     delete 'sign_out' => :destroy
+  end
+
+  namespace :forums do 
+    root to: 'forums#index'
   end
 
   # resource :account_confirmations, only: [ :create ]

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Startup Institute Alumni Portal</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+  <div class="container">
+
+    <div id='flash'>
+      <%= render 'common/display_flash' if flash %>
+    </div>
+
+    <%= render 'layouts/header' %>
+
+    <div class="body-content">
+      
+      <%= yield %>
+      <ng:view></ng:view>
+
+
+    </div><!-- /.body-content -->
+
+    <!-- Site footer -->
+    <div class="footer">
+      <p>Startup Institute 2013</p>
+    </div>
+
+  </div> <!-- /container -->
+
+</body>
+</html>
