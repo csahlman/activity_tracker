@@ -12,3 +12,16 @@
  *= require jumbotron_styles
  *= require_self
  */
+
+.body-content {
+  margin-top: 20px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.highlighter:hover {
+  border-left: 2px solid black;
+  cursor: pointer;
+}

@@ -6,9 +6,10 @@ angular.module('venture').controller 'FormsCtrl', ($scope, $http, $location) ->
     designer_quantity: 1
   }
   $scope.loadedInfo = null
-  
+  $scope.tab = 0
   $scope.areas = ['Boulder', 'Denver']
   $scope.businessTypes = ['Services', 'Products']
+  $scope.sideFrame = "info"
 
   $scope.localCosts = { 
     'developerCost': 84000
@@ -21,16 +22,26 @@ angular.module('venture').controller 'FormsCtrl', ($scope, $http, $location) ->
     'hostingCost': 600
   }
 
-  $scope.calculateCost = (months) ->
-    sum = $scope.localCosts.developerCost * $scope.formData.developer_quantity
-    sum += $scope.localCosts.designerCost * $scope.formData.designer_quantity
-    sum += $scope.localCosts.officeSpaceCost * $scope.formData.square_feet
+  $scope.setFrame = (frame) ->
+    $scope.sideFrame = frame
+
+  $scope.setTab = (value) ->
+    $scope.tab = value
+
+  $scope.calculateTotalCost = (months) ->
+    $scope.calculateFixedCost() + $scope.calculateDeveloperCost()
+    # sum += $scope.localCosts.taxRates * $scope.formData.expected_profits
+
+  $scope.calculateFixedCost = (months) ->
+    sum = $scope.localCosts.officeSpaceCost * $scope.formData.square_feet
     sum += $scope.localCosts.legalPerHour * $scope.formData.legal_hours
     sum += $scope.localCosts.incorporationCost
     sum += $scope.localCosts.hostingCost
     sum += $scope.localCosts.domainNameCost * $scope.formData.domain_name_quantity
-    # sum += $scope.localCosts.taxRates * $scope.formData.expected_profits
 
+  $scope.calculateDeveloperCost = (months) ->
+    sum = $scope.localCosts.developerCost * $scope.formData.developer_quantity
+    sum += $scope.localCosts.designerCost * $scope.formData.designer_quantity
 
   $scope.loadFormData = ->
     $http
