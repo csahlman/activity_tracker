@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914180752) do
+ActiveRecord::Schema.define(version: 20130914205541) do
 
   create_table "chatrooms", force: true do |t|
     t.string   "name"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 20130914180752) do
     t.string   "business_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "developer_quantity",   default: 1.0
+    t.float    "designer_quantity",    default: 1.0
+    t.integer  "square_feet",          default: 200
+    t.integer  "legal_hours",          default: 15
+    t.integer  "domain_name_quantity", default: 1
   end
 
   create_table "users", force: true do |t|

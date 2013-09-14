@@ -1,36 +1,140 @@
 <div class="row">
   <div class="col-md-8">
 
-    <form class="form-horizontal" name="calculator" ng-submit="saveState()">
+      <h1>Average One Year Startup Cost {{calculateCost() | currency:"$"}} in {{formData.area}}</h1>
 
-      <h1>{{formData.business_type}} in {{formData.area}}</h1>
+      <div class="row">
 
-      <div class="form-group">
-        <label class="col-lg-2 control-label" for="area">
-          Select your city
-        </label>
-        <div class="col-lg-10">
-          <select class="form-control" 
-            ng-model="formData.area"
-            ng-options="area for area in areas">
-          </select>
+        <div class="col-md-6">
+          <h5>Average Cost of a back-end developer in {{formData.area}}: 
+            {{localCosts.developerCost | currency:"$"}}</h5>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-lg-2 control-label" for="area">
-          Select your business model
-        </label>
-        <div class="col-lg-10">
-          <select class="form-control" 
-            ng-model="formData.business_type"
-            ng-options="type for type in businessTypes">
-          </select>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Quantity</label>
+            <div class="col-lg-10">
+              <input type="text" ng-model="formData.developer_quantity">
+            </div>
+          </div>
         </div>
+
       </div>
 
-      <button type="submit" class="btn btn-lg btn-success">Continue to Costs</button>
+      <div class="row">
 
-    </form>
+        <div class="col-md-6">
+          <h5>Average Cost of a front-end developer in {{formData.area}}: 
+            {{localCosts.designerCost | currency:"$"}}</h5>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Quantity</label>
+            <div class="col-lg-10">
+              <input type="text" ng-model="formData.designer_quantity">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h5>Tax Rates in {{formData.area}}: {{localCosts.localTaxRate}}%</h5>
+        </div>
+
+        <div class="col-md-6">
+          
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h5>Cost of office space per square foot: 
+            {{localCosts.officeSpaceCost | currency:"$"}}</h5>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Square Feet</label>
+            <div class="col-lg-10">
+              <input type="text" ng-model="formData.square_feet">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h5>Cost of creating LLC: 
+            {{localCosts.incorporationCost | currency:"$"}}</h5>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h5>Cost per hour of additional legal: 
+            {{localCosts.legalPerHour | currency:"$"}}</h5>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Hours</label>
+            <div class="col-lg-10">
+              <input type="text" ng-model="formData.legal_hours">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h5>Cost per domain name:
+            {{localCosts.domainNameCost | currency:"$"}}</h5>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Quantity</label>
+            <div class="col-lg-10">
+              <input type="text" ng-model="formData.domain_name_quantity">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h5>Hosting Cost for Web Application: 
+            {{localCosts.hostingCost | currency:"$"}}</h5>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h5 ng-show="developers.length">Vetted Developers available for hire in {{formData.area}}:</h5>
+          <h5 ng-hide="developers.length">We have no vetted developers available for hire in {{formData.area}}</h5>
+          <ul>
+            <li ng-repeat="developer in developers">
+              {{developer.name}} - ${{developer.salary}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
 
   </div>
   <div class="col-md-4">

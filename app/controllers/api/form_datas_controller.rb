@@ -14,6 +14,7 @@ class Api::FormDatasController < ApplicationController
   private
 
     def form_parameters
-      params[:form_data].permit(:area, :business_type)
+      params[:form_data].permit(:area, :business_type, :developer_quantity, :designer_quantity,
+        :square_feet, :legal_hours, :domain_name_quantity)
     end
 end
