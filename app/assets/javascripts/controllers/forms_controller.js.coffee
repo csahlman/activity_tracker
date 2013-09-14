@@ -1,5 +1,8 @@
 angular.module('venture').controller 'FormsCtrl', ($scope) ->
 
   $scope.areas = ['Boulder', 'Denver']
+  $scope.businessTypes = ['Services', 'Products']
 
-  console.log 'foo'
+
+  $scope.saveState = ->
+    console.log "saved"

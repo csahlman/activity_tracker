@@ -1,1 +1,40 @@
-<h1>foobar</h1>
+<div class="row">
+  <div class="col-md-8">
+
+    <form class="form-horizontal" name="calculator" ng-submit="saveState()">
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="area">
+          Select your city
+        </label>
+        <div class="col-lg-10">
+          <select class="form-control" 
+            ng-model="formData.area"
+            ng-options="area for area in areas">
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="area">
+          Select your business model
+        </label>
+        <div class="col-lg-10">
+          <select class="form-control" 
+            ng-model="formData.business_type"
+            ng-options="type for type in businessTypes">
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-success">Continue to Costs</button>
+
+    </form>
+
+  </div>
+  <div class="col-md-4">
+
+    <h4 ng-repeat="(key, value) in formData">{{key}}: {{value}}</h4>
+
+  </div>
+
+</div>
