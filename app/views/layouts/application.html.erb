@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="venture">
 <head>
   <title>Startup Institute Alumni Portal</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -9,7 +9,7 @@
 <body>
 
 
-  <div class="container">
+  <div class="container" ng-controller="AppCtrl">
 
     <div id='flash'>
       <%= render 'common/display_flash' if flash %>

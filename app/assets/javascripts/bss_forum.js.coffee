@@ -1,6 +1,6 @@
-angular.module('bss_forum', [])
+angular.module('venture', ['ngRoute'])
 
-angular.module('bss_forum').config ($httpProvider) ->
+angular.module('venture').config ($httpProvider) ->
   $httpProvider.defaults.transformRequest.push (data, headersGetter) ->
     utf8_data = data
     unless angular.isUndefined(data)
@@ -8,3 +8,10 @@ angular.module('bss_forum').config ($httpProvider) ->
       d["_utf8"] = "☃"
       utf8_data = angular.toJson(d)
     utf8_data
+
+angular.module('venture').config(($routeProvider) ->
+  $routeProvider.when('/',
+    controller: 'FormsCtrl'
+    templateUrl: '/assets/forms/start.html'
+  )
+)
