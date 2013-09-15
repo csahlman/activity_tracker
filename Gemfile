@@ -63,6 +63,8 @@ gem 'websocket-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+gem "ngmin-rails", "~> 0.4.0"
+
 gem 'simple_form'
 
 # Use unicorn as the app server
