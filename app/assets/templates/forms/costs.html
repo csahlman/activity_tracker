@@ -13,14 +13,16 @@
   </ul>
   <div class="col-md-8">
 
-    <h1 ng-show="tab == 2">Average One Year Startup Cost {{calculateTotalCost() 
+    <h1 ng-show="tab == 2">Average Fixed Costs: {{calculateTotalCost() 
       | currency:"$"}} in {{formData.area}}</h1>
 
-    <h1 ng-show="tab == 1">Average One Year Developer Cost {{calculateDeveloperCost() 
+    <h1 ng-show="tab == 1">Average Developer Costs {{calculateDeveloperCost() 
       | currency:"$"}} in {{formData.area}}</h1>
 
-    <h1 ng-show="tab == 0">Average One Year Startup Cost {{calculateFixedCost() 
+    <h1 ng-show="tab == 0">Average Total Costs {{calculateFixedCost() 
       | currency:"$"}} in {{formData.area}}</h1>
+
+    <h3>One Year</h3>
 
     <div ng-show="tab == 1 || tab == 2">
 
@@ -156,19 +158,51 @@
     </button>
 
     <div ng-switch-when="developer_cost">
-      Developer
+      <h1>Developer</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>
 
     <div ng-switch-when="designer_cost">
-      Designer
+      <h1>Designer</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>
 
     <div ng-switch-when="local_taxes">
-      Local Tax Information
+      <h1>Local Tax Information</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>
 
     <div ng-switch-when="office_space">
-      Office Space Information
+      <h1>Office Space Information</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>
 
     <div ng-switch-when="incorporation">
@@ -192,15 +226,39 @@
     </div>
 
     <div ng-switch-when="legal_costs">
-      <h1>Legal Costs</h1>
+      <h1>Legal costs</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>      
 
     <div ng-switch-when="domain_names">
-      <h1>Catchy Domain Name</h1>
+      <h1>Domain Names</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>  
 
     <div ng-switch-when="web_hosting">
-      <h1>Web Hosting Costs</h1>
+      <h1>Web Hosting</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>  
 
 
