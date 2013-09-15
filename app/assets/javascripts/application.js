@@ -18,9 +18,6 @@
 //= require csrf
 //= require bootstrap.min
 //= require_tree ./directives
-//= require_tree ./filters
-//= require_tree ./factories
-//= require_tree ./services
 //= require_tree ./controllers
 
 
