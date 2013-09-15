@@ -13,13 +13,13 @@
   </ul>
   <div class="col-md-8">
 
-    <h1 ng-show="tab == 2">Average Fixed Costs: {{calculateTotalCost() 
+    <h1 ng-show="tab == 0">Average Fixed Costs: {{calculateFixedCost() 
       | currency:"$"}} in {{formData.area}}</h1>
 
     <h1 ng-show="tab == 1">Average Developer Costs {{calculateDeveloperCost() 
       | currency:"$"}} in {{formData.area}}</h1>
 
-    <h1 ng-show="tab == 0">Average Total Costs {{calculateFixedCost() 
+    <h1 ng-show="tab == 2">Average Total Costs {{calculateTotalCost() 
       | currency:"$"}} in {{formData.area}}</h1>
 
     <h3>One Year</h3>
