@@ -2,18 +2,10 @@
   <h3 class="text-muted">Denver Startup Weekend</h3>
   <ul class="nav nav-justified">
     <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Projects</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Downloads</a></li>
-    <li><a href="#">About</a></li>
-    <% if user_signed_in? %>
-    <li>
-      <%= link_to "Sign Out", sign_out_path, method: :delete, 
-          data: { role: "signout" } %>
-    </li>
-    <% else %>
-    <li><%= link_to "Sign Up", new_user_path, data: { role: "signup" } %></li>
-    <li><%= link_to "Sign In", sign_in_path, data: { role: "signin" } %></li>
-    <% end %>
+    <li><a href="#">Getting Started</a></li>
+    <li><a href="#">Funding</a></li>
+    <li><a href="#">Jobs</a></li>
+    <li><a href="#">Offers</a></li>
+    <li><a href="#">Forums</a></li>
   </ul>
 </div>

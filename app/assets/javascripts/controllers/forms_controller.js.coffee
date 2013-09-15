@@ -6,10 +6,10 @@ angular.module('venture').controller 'FormsCtrl', ($scope, $http, $location) ->
     designer_quantity: 1
   }
   $scope.loadedInfo = null
-  $scope.tab = 0
+  $scope.tab = $location.search().tab || 0
   $scope.areas = ['Boulder', 'Denver']
   $scope.businessTypes = ['Services', 'Products']
-  $scope.sideFrame = "info"
+  $scope.sideFrame = $location.search().frame || 'info'
 
   $scope.localCosts = { 
     'developerCost': 84000
@@ -23,9 +23,11 @@ angular.module('venture').controller 'FormsCtrl', ($scope, $http, $location) ->
   }
 
   $scope.setFrame = (frame) ->
+    $location.search('frame', frame)
     $scope.sideFrame = frame
 
   $scope.setTab = (value) ->
+    $location.search('tab', value)
     $scope.tab = value
 
   $scope.calculateTotalCost = (months) ->
