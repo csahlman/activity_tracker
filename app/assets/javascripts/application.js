@@ -17,7 +17,6 @@
 //= require bss_forum
 //= require csrf
 //= require bootstrap.min
-//= require_tree ./directives
 //= require_tree ./controllers
 
 
