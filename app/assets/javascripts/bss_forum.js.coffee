@@ -16,5 +16,8 @@ angular.module('venture').config(($routeProvider) ->
   ).when('/costs',
     controller: 'CostsCtrl'
     templateUrl: '/assets/forms/costs.html'
+  ).when('/llc',
+    controller: 'InformationCtrl'
+    templateUrl: '/assets/information/llc.html'
   )
 )
