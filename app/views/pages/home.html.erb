@@ -1,31 +1,546 @@
-<%# content_for(:jumbotron) do %>
-<!--   <div class="jumbotron">
-    <h1>So you want to start a startup in Denver?</h1>
-    <p class="lead">Follow our five step process 
-    </p>
-    <p>
-      <%= link_to 'Visit the Forums', '/forums', 
-        class: 'btn btn-large btn-success' %>
-    </p>
+<div class='carousel slide over-something' id='homepage-carousel'>
+  <div class='carousel-inner slider-w'>
+    <div class='active item'>
+      <div class='container'>
+        <h1 class='slider-header'><strong>Vensured</strong> Your one stop shop for all things start ups</h1>
+        <h2 class='slider-sub-header'>Maecenas fermentum sem in nunc sagittis iaculis.</h2>
+        <div class='cta'>
+          <a href="features/pricing_tables.html" class="btn btn-cta">Some Action Button</a>
+        </div>
+        <div class='slider-browsers-w clearfix'>
+          <div class='slider-browser slider-browser-left hidden-phone' data-position-bottom='-8%'>
+            <%= image_tag 'browser-window.png' %>
+          </div>
+          <div class='slider-browser slider-browser-center' data-position-bottom='-9%'>
+            <%= image_tag 'browser-window.png' %>
+          </div>
+          <div class='slider-browser slider-browser-right hidden-phone' data-position-bottom='-8%'>
+            <%= image_tag 'browser-window.png' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='item'>
+      <div class='container'>
+        <h1 class='slider-header'>I am always on skype, feel free to ask questions.</h1>
+        <h2 class='slider-sub-header'>Maecenas fermentum sem in nunc sagittis iaculis.</h2>
+        <div class='cta'>
+          <a href="features/pricing_tables.html" class="btn btn-cta btn-warning">Some Action Button</a>
+        </div>
+        <div class='row zoomed-browsers-w'>
+          <div class='span4'>
+            <div class='zoomed-browser'>
+              <img alt="Browser-window-1" src="//assets/images/browser-window.png" />
+            </div>
+          </div>
+          <div class='span4'>
+            <div class='zoomed-browser hidden-phone'>
+              <img alt="Browser-window-2" src="//assets/images/browser-window.png" />
+            </div>
+          </div>
+          <div class='span4'>
+            <div class='zoomed-browser hidden-phone'>
+              <img alt="Browser-window-3" src="//assets/images/browser-window.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
- --><%# end %>
-
-<!-- Example row of columns -->
-<!-- <div class="row">
-  <div class="col-lg-4">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-    <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
-  </div>
-  <div class="col-lg-4">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-    <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
- </div>
-  <div class="col-lg-4">
-    <h2>Heading</h2>
-    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-    <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+  <a class='carousel-control left' data-slide='prev' href='#homepage-carousel'>
+    <i class='icon-chevron-left'></i>
+  </a>
+  <a class='carousel-control right' data-slide='next' href='#homepage-carousel'>
+    <i class='icon-chevron-right'></i>
+  </a>
+</div>
+<div class='sub-slider-features'>
+  <div class='container'>
+    <div class='row'>
+      <div class='span4'>
+        <div class='info-bullet'>
+          <i class='icon-file'></i>
+          <h5>Blog Pages Design</h5>
+          <p>Vestibulum placerat purus sed nunc tincidunt ultrices et. Vivamus pharetra aliquet nisi non pretium.</p>
+        </div>
+      </div>
+      <div class='span4'>
+        <div class='info-bullet'>
+          <i class='icon-tags'></i>
+          <h5>Responsive Template</h5>
+          <p>Vestibulum placerat purus sed nunc tincidunt ultrices et. Vivamus pharetra aliquet nisi non pretium.</p>
+        </div>
+      </div>
+      <div class='span4'>
+        <div class='info-bullet'>
+          <i class='icon-cogs'></i>
+          <h5>Easy to Customize</h5>
+          <p>Vestibulum placerat purus sed nunc tincidunt ultrices et. Vivamus pharetra aliquet nisi non pretium.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
- -->
+<section class='section-wrapper under-slider'>
+  <div class='container'>
+    <div class='row'>
+      <div class='span12'>
+        <h3 class='section-header'>Recent Work</h3>
+      </div>
+      <div class='span3'>
+        <div class='white-card'>
+          <div class="img-w hover-fader">
+            <a href="/assets/images/test-square.png" data-rel="lightbox[gallery]"><img alt="Photo-card" src="//assets/images/test-square.png">
+              <span class="hover-fade">
+                <i class="icon-zoom-in"></i>
+              </span>
+            </a>
+          </div>
+          <h5>Donec et egestas elit.</h5>
+          <p>Cras metus elit, consectetur sed congue vel, sollicitudin eget odio. Cras lacinia laoreet libero et mattis.</p>
+        </div>
+      </div>
+      <div class='span3'>
+        <div class='white-card'>
+          <div class="img-w hover-fader">
+            <a href="/assets/images/test-square.png" data-rel="lightbox[gallery]"><img alt="Photo-card" src="//assets/images/test-square.png">
+              <span class="hover-fade">
+                <i class="icon-zoom-in"></i>
+              </span>
+            </a>
+          </div>
+          <h5>Donec et egestas elit.</h5>
+          <p>Cras metus elit, consectetur sed congue vel, sollicitudin eget odio. Cras lacinia laoreet libero et mattis.</p>
+        </div>
+      </div>
+      <div class='span3'>
+        <div class='white-card'>
+          <div class="img-w hover-fader">
+            <a href="/assets/images/test-square.png" data-rel="lightbox[gallery]"><img alt="Photo-card" src="//assets/images/test-square.png">
+              <span class="hover-fade">
+                <i class="icon-zoom-in"></i>
+              </span>
+            </a>
+          </div>
+          <h5>Donec et egestas elit.</h5>
+          <p>Cras metus elit, consectetur sed congue vel, sollicitudin eget odio. Cras lacinia laoreet libero et mattis.</p>
+        </div>
+      </div>
+      <div class='span3'>
+        <div class='white-card'>
+          <div class="img-w hover-fader">
+            <a href="/assets/images/test-square.png" data-rel="lightbox[gallery]"><img alt="Photo-card" src="//assets/images/test-square.png">
+              <span class="hover-fade">
+                <i class="icon-zoom-in"></i>
+              </span>
+            </a>
+          </div>
+          <h5>Donec et egestas elit.</h5>
+          <p>Cras metus elit, consectetur sed congue vel, sollicitudin eget odio. Cras lacinia laoreet libero et mattis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class='section-wrapper'>
+  <div class='container'>
+    <div class='row'>
+      <div class='span6'>
+        <h3 class='section-header'>Client Testimonials</h3>
+        <div class='testimonials'>
+          <div class='testimonials-users row hidden-phone'>
+            <div class='span1'>
+              <a class='testimonials-user-w active' data-toggle='testimonial' href='#testimonial1'>
+                <span class='testimonials-user'><%= image_tag "test-user.png" %></span>
+              </a>
+            </div>
+            <div class='span1'>
+              <a class='testimonials-user-w' data-toggle='testimonial' href='#testimonial2'>
+                <span class='testimonials-user'><%= image_tag "test-user.png" %></span>
+              </a>
+            </div>
+            <div class='span1'>
+              <a class='testimonials-user-w' data-toggle='testimonial' href='#testimonial3'>
+                <span class='testimonials-user'><%= image_tag "test-user.png" %></span>
+              </a>
+            </div>
+            <div class='span1'>
+              <a class='testimonials-user-w' data-toggle='testimonial' href='#testimonial4'>
+                <span class='testimonials-user'><%= image_tag "test-user.png" %></span>
+              </a>
+            </div>
+            <div class='span1'>
+              <a class='testimonials-user-w' data-toggle='testimonial' href='#testimonial5'>
+                <span class='testimonials-user'><%= image_tag "test-user.png" %></span>
+              </a>
+            </div>
+            <div class='span1'>
+              <a class='testimonials-user-w' data-toggle='testimonial' href='#testimonial6'>
+                <span class='testimonials-user'><%= image_tag "test-user.png" %></span>
+              </a>
+            </div>
+          </div>
+          <div class='testimonials-speeches'>
+            <div class="testimonials-speech active" id="testimonial1">
+              <p>
+                <strong>Homer Simpson is amazing.</strong>
+                I've worked with Homer on couple of projects and i really like how lazy he is. Sleeps a lot, does not compain much, a perfect employee.
+              </p>
+              <div class="speech-by">
+                Mr. Burns, Springfield Nuclear Power Plant
+              </div>
+            </div>
+            <div class='testimonials-speech' id='testimonial2'>
+              <p>
+                <strong>Nulla gravida tellus id fermentum.</strong>
+                Phasellus aliquet lobortis dolor, vel aliquam tortor porta vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
+              </p>
+              <div class='speech-by'>
+                John Doe, Dundler Mufflin
+              </div>
+            </div>
+            <div class='testimonials-speech' id='testimonial3'>
+              <p>
+                <strong>Aliquam at sodales arcu.</strong>
+                Nulla gravida, tellus id fermentum tempus, urna elit tempus justo, a tincidunt dui lacus nec est. Maecenas ligula ipsum, suscipit quis posuere id, porttitor vitae odio. Phasellus cursus mauris nec felis sollicitudin ac semper quam hendrerit. Morbi sagittis lobortis libero id imperdiet.
+              </p>
+              <div class='speech-by'>
+                John Doe, Dundler Mufflin
+              </div>
+            </div>
+            <div class='testimonials-speech' id='testimonial4'>
+              <p>
+                <strong>Aenean purus ipsum convallis.</strong>
+                Quisque eu est ipsum. Aliquam at sodales arcu. Cras justo velit, pretium quis luctus a, posuere vitae justo. Proin porttitor ultricies justo at semper. Curabitur leo tortor, placerat ut placerat vel, tristique et ipsum. Maecenas at tellus leo, vitae pellentesque velit. Mauris ac augue magna. Vestibulum et magna at urna venenatis vehicula.
+              </p>
+              <div class='speech-by'>
+                John Doe, Solomon Inc
+              </div>
+            </div>
+            <div class='testimonials-speech' id='testimonial5'>
+              <p>
+                <strong>Maecenas id rutrum enim.</strong>
+                Pellentesque fringilla fringilla molestie. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              </p>
+              <div class='speech-by'>
+                John Doe, ThemeForest
+              </div>
+            </div>
+            <div class='testimonials-speech' id='testimonial6'>
+              <p>
+                <strong>Pellentesque habitant morbi tristique</strong>
+                Aenean venenatis nisi sit amet massa congue commodo. Aenean purus ipsum, convallis quis rhoncus ut, ullamcorper eget metus.
+              </p>
+              <div class='speech-by'>
+                John Doe, Dundler Mufflin
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="span6">
+        <h3 class="section-header">Services We Offer</h3>
+        <div class="accordion" id="accordion">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapseOne">
+                Web Development
+              </a>
+            </div>
+            <div class="accordion-body collapse in" id="collapseOne">
+              <div class="accordion-inner">
+                Cras lacinia laoreet libero et mattis. In facilisis neque id lectus hendrerit in dignissim orci rhoncus. Etiam lacinia, mauris sed sagittis laoreet, sapien erat consectetur enim, eget sagittis orci magna at dolor. Donec semper tellus vitae massa laoreet congue. In id elit in turpis fermentum bibendum eget ac nibh.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">
+                Photoshop Website Design
+              </a>
+            </div>
+            <div class="accordion-body collapse" id="collapseTwo">
+              <div class="accordion-inner">
+                Cras lacinia laoreet libero et mattis. In facilisis neque id lectus hendrerit in dignissim orci rhoncus. Etiam lacinia, mauris sed sagittis laoreet, sapien erat consectetur enim, eget sagittis orci magna at dolor. Donec semper tellus vitae massa laoreet congue. In id elit in turpis fermentum bibendum eget ac nibh.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">
+                Search Engine Optimization
+              </a>
+            </div>
+            <div class="accordion-body collapse" id="collapseThree">
+              <div class="accordion-inner">
+                Cras lacinia laoreet libero et mattis. In facilisis neque id lectus hendrerit in dignissim orci rhoncus. Etiam lacinia, mauris sed sagittis laoreet, sapien erat consectetur enim, eget sagittis orci magna at dolor. Donec semper tellus vitae massa laoreet congue. In id elit in turpis fermentum bibendum eget ac nibh.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class='section-wrapper stripped'>
+  <div class='container'>
+    <div class='row clients-w'>
+      <div class='span12'>
+        <h3 class='section-header'>Our Clients</h3>
+      </div>
+      <div class='span2'>
+        <div class='white-card'>
+          <%= image_tag "test-square.png" %>
+        </div>
+      </div>
+      <div class='span2'>
+        <div class='white-card'>
+          <%= image_tag "test-square.png" %>
+        </div>
+      </div>
+      <div class='span2'>
+        <div class='white-card'>
+          <%= image_tag "test-square.png" %>
+        </div>
+      </div>
+      <div class='span2'>
+        <div class='white-card'>
+          <%= image_tag "test-square.png" %>
+        </div>
+      </div>
+      <div class='span2'>
+        <div class='white-card'>
+          <%= image_tag "test-square.png" %>
+        </div>
+      </div>
+      <div class='span2'>
+        <div class='white-card'>
+          <%= image_tag "test-square.png" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class='section-wrapper stripped'>
+  <div class='container'>
+    <div class='row'>
+      <div class='span12'>
+        <h3 class='section-header'>From the Blog</h3>
+      </div>
+      <div class='span4'>
+        <div class='white-card recent-post clearfix'>
+          <h5 class='recent-post-header'>
+            <a href="blog/single_post.html">Nullam velit diam, rhoncus sed</a>
+          </h5>
+          <div class='post-info clearfix'>
+            <div class='pull-left'>
+              <span class='post-date'>January 15, 2011</span>
+              <a href="blog/single_post.html" class="post-comments">14 Comments</a>
+            </div>
+            <div class='pull-right'>
+              <a href="#" class="post-like"><i class='icon-heart'></i>
+                250
+              </a>
+            </div>
+          </div>
+          <%= image_tag "test-square.png" %>
+          <p class='post-content separated'>Donec vel turpis non erat luctus ultrices vel sed massa. Quisque commodo venenatis arcu, non volutpat arcu lobortis at. Donec imperdiet nibh id metus adipiscing semper.</p>
+          <a href="blog/single_post.html" class="btn btn-primary btn-extra pull-right">Read More &gt;</a>
+        </div>
+      </div>
+      <div class='span4'>
+        <div class='white-card recent-post clearfix'>
+          <h5 class='recent-post-header'>
+            <a href="blog/single_post.html">Nullam velit diam, rhoncus sed</a>
+          </h5>
+          <div class='post-info clearfix'>
+            <div class='pull-left'>
+              <span class='post-date'>January 15, 2011</span>
+              <a href="blog/single_post.html" class="post-comments">14 Comments</a>
+            </div>
+            <div class='pull-right'>
+              <a href="#" class="post-like"><i class='icon-heart'></i>
+                250
+              </a>
+            </div>
+          </div>
+          <%= image_tag "test-square.png" %>
+          <p class='post-content separated'>Donec vel turpis non erat luctus ultrices vel sed massa. Quisque commodo venenatis arcu, non volutpat arcu lobortis at. Donec imperdiet nibh id metus adipiscing semper.</p>
+          <a href="blog/single_post.html" class="btn btn-primary btn-extra pull-right">Read More &gt;</a>
+        </div>
+      </div>
+      <div class='span4'>
+        <div class='white-card recent-post clearfix'>
+          <h5 class='recent-post-header'>
+            <a href="blog/single_post.html">Nullam velit diam, rhoncus sed</a>
+          </h5>
+          <div class='post-info clearfix'>
+            <div class='pull-left'>
+              <span class='post-date'>January 15, 2011</span>
+              <a href="blog/single_post.html" class="post-comments">14 Comments</a>
+            </div>
+            <div class='pull-right'>
+              <a href="#" class="post-like"><i class='icon-heart'></i>
+                250
+              </a>
+            </div>
+          </div>
+          <img alt="Photo-card-big-6" class="post-image" src="/assets/images/test-square.png" />
+          <p class='post-content separated'>Donec vel turpis non erat luctus ultrices vel sed massa. Quisque commodo venenatis arcu, non volutpat arcu lobortis at. Donec imperdiet nibh id metus adipiscing semper.</p>
+          <a href="blog/single_post.html" class="btn btn-primary btn-extra pull-right post-btn">Read More &gt;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class='section-wrapper stripped'>
+  <div class='container'>
+    <div class='row'>
+      <div class='span12'>
+        <h3 class='section-header'>Payment Plans Information</h3>
+        <div class='white-card no-padding'>
+          <div class='pricing-table'>
+            <div class='row'>
+              <div class='span3'>
+                <div class='pricing-plan-w first-plan'>
+                  <div class='plan-name'>
+                    Free
+                  </div>
+                  <div class='plan-price-w'>
+                    <div class='plan-price-desc'>Starting at</div>
+                    <div class='plan-price'>
+                      <span class='price-currency'>$</span>
+                      <span class='price-self'>0</span>
+                      <span class='price-period'>/mo</span>
+                    </div>
+                  </div>
+                  <div class='plan-desc'>
+                    <ul>
+                      <li>Unlimited bandwidth</li>
+                      <li>
+                        <strong>100</strong>
+                        Products
+                      </li>
+                      <li>
+                        <strong>1GB</strong>
+                        Storage
+                      </li>
+                      <li>
+                        <strong>2.0%</strong>
+                        Transaction fee
+                      </li>
+                    </ul>
+                    <p>Plan Information: In eu libero tortor, et bibendum tellus. Fusce a libero est.</p>
+                    <a href="register.html" class="btn btn-primary btn-large">Select This Plan</a>
+                  </div>
+                </div>
+              </div>
+              <div class='span3'>
+                <div class='pricing-plan-w'>
+                  <div class='plan-name'>
+                    Premium
+                  </div>
+                  <div class='plan-price-w'>
+                    <div class='plan-price-desc'>Starting at</div>
+                    <div class='plan-price'>
+                      <span class='price-currency'>$</span>
+                      <span class='price-self'>15</span>
+                      <span class='price-period'>/mo</span>
+                    </div>
+                  </div>
+                  <div class='plan-desc'>
+                    <ul>
+                      <li>Unlimited bandwidth</li>
+                      <li>
+                        <strong>500</strong>
+                        Products
+                      </li>
+                      <li>
+                        <strong>3GB</strong>
+                        Storage
+                      </li>
+                      <li>
+                        <strong>1.8%</strong>
+                        Transaction fee
+                      </li>
+                    </ul>
+                    <p>Plan Information: In eu libero tortor, et bibendum tellus. Fusce a libero est.</p>
+                    <a href="register.html" class="btn btn-primary btn-large">Select This Plan</a>
+                  </div>
+                </div>
+              </div>
+              <div class='span3'>
+                <div class='pricing-plan-w'>
+                  <div class='plan-name'>
+                    Enterprise
+                  </div>
+                  <div class='plan-price-w'>
+                    <div class='plan-price-desc'>Starting at</div>
+                    <div class='plan-price'>
+                      <span class='price-currency'>$</span>
+                      <span class='price-self'>25</span>
+                      <span class='price-period'>/mo</span>
+                    </div>
+                  </div>
+                  <div class='plan-desc'>
+                    <ul>
+                      <li>Unlimited bandwidth</li>
+                      <li>
+                        <strong>1000</strong>
+                        Products
+                      </li>
+                      <li>
+                        <strong>10GB</strong>
+                        Storage
+                      </li>
+                      <li>
+                        <strong>1.6%</strong>
+                        Transaction fee
+                      </li>
+                    </ul>
+                    <p>Plan Information: In eu libero tortor, et bibendum tellus. Fusce a libero est.</p>
+                    <a href="register.html" class="btn btn-primary btn-large">Select This Plan</a>
+                  </div>
+                </div>
+              </div>
+              <div class='span3'>
+                <div class='pricing-plan-w last-plan'>
+                  <div class='plan-name'>
+                    Unlimited
+                  </div>
+                  <div class='plan-price-w'>
+                    <div class='plan-price-desc'>Starting at</div>
+                    <div class='plan-price'>
+                      <span class='price-currency'>$</span>
+                      <span class='price-self'>50</span>
+                      <span class='price-period'>/mo</span>
+                    </div>
+                  </div>
+                  <div class='plan-desc'>
+                    <ul>
+                      <li>Unlimited bandwidth</li>
+                      <li>
+                        <strong>2000</strong>
+                        Products
+                      </li>
+                      <li>
+                        <strong>20GB</strong>
+                        Storage
+                      </li>
+                      <li>
+                        <strong>1.0%</strong>
+                        Transaction fee
+                      </li>
+                    </ul>
+                    <p>Plan Information: In eu libero tortor, et bibendum tellus. Fusce a libero est.</p>
+                    <a href="register.html" class="btn btn-primary btn-large">Select This Plan</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

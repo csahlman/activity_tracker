@@ -8,20 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap.min
- *= require jumbotron_styles
+ *= require theme_venera
  *= require_self
  */
-
-.body-content {
-  margin-top: 20px;
-}
-
-a {
-  cursor: pointer;
-}
-
-.highlighter:hover {
-  border-left: 2px solid black;
-  cursor: pointer;
-}

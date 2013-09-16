@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="venture">
 <head>
-  <title>Denver Startup Portal</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Theme Venera Homepage</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <title>Vensured</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
+  <link href="http://fonts.googleapis.com/css?family=Abel:400|Oswald:300,400,700" media="all" rel="stylesheet" type="text/css" />
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-  <div class="container" ng-controller="AppCtrl">
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+  <![endif]-->
 
     <div id='flash'>
       <%= render 'common/display_flash' if flash %>
     </div>
 
     <%= render 'layouts/header' %>
-
-    <!-- Jumbotron -->
-    <%= yield(:jumbotron) %>
-
-    <div class="body-content" ng-controller="FormsCtrl">
       
-      <%= yield %>
-      <ng:view></ng:view>
+    <%= yield %>
+    <ng:view></ng:view>
+    <%= render 'layouts/footer' %>
 
-
-    </div><!-- /.body-content -->
-
-    <!-- Site footer -->
-    <div class="footer">
-      <p>Startup Institute 2013</p>
-    </div>
-
-  </div> <!-- /container -->
 
 </body>
 </html>
