@@ -1,11 +1,71 @@
+<section class="call_to_action">
+  <div class="carousel slide over-something">
+    <div class="carousel-inner slider-w">
+      <div class="active item">
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <h1 class='slider-header'><strong>Vensured</strong> Your one stop shop for all things start ups</h1>
+              <h2 class='slider-sub-header'>Start a company.  Get involved.  Stay connected.</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span6">
+              <h3>Select Your City <i class="icon-plane"> </i></h3>
+              <dl class="header_list">
+                <dt>Colorado</dt>
+                <dd><a href="#">Boulder</a></dd>
+                <dd><a href="#">Denver</a></dd>
+                <dt>New York</dt>
+                <dd><a href="#">New York City</a></dd>
+                <dt>Massachussetts</dt>
+                <dd><a href="#">Boston/Cambridge</a></dd>
+              </dl>
+            </div>
+            <div class="span2">
+              <h3>Or</h3>
+            </div>
+            <div class="span4">
+              <h3>Visit the Forums</h3>
+              <div class="cta">
+                <%= link_to "Get Started Today", '#', class: "btn btn-cta" %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <div class='carousel slide over-something' id='homepage-carousel'>
   <div class='carousel-inner slider-w'>
     <div class='active item'>
       <div class='container'>
-        <h1 class='slider-header'><strong>Vensured</strong> Your one stop shop for all things start ups</h1>
-        <h2 class='slider-sub-header'>Start a company.  Get involved.  Stay connected.</h2>
+        <div class="row">
+          <div class="span12">
+            <h1 class='slider-header'><strong>Vensured</strong> Your one stop shop for all things start ups</h1>
+            <h2 class='slider-sub-header'>Start a company.  Get involved.  Stay connected.</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span8">
+            <h3>Select Your City</h3>
+
+          </div>
+        </div>
         <div class='cta'>
-          <a href="features/pricing_tables.html" class="btn btn-cta">Some Action Button</a>
+          <i class="icon-plane huge">  </i>
+          <select class="input-xlarge">
+            <option>Choose a City</option>
+            <option>Denver</option>
+            <option>Boulder</option>
+            <option>Boston</option>
+          </select>
+          <br />
+          <%= link_to "Get Started Today", '#', class: "btn btn-cta" %>
         </div>
         <div class='slider-browsers-w clearfix'>
           <div class='slider-browser slider-browser-left hidden-phone' data-position-bottom='-8%'>
