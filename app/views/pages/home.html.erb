@@ -14,12 +14,12 @@
               <h3>Select Your City <i class="icon-plane"> </i></h3>
               <dl class="header_list">
                 <dt>Colorado</dt>
-                <dd><a href="#">Boulder</a></dd>
-                <dd><a href="#">Denver</a></dd>
+                <dd><a href="#"><%= link_to 'Boulder', city_path(id: "boulder") %></a></dd>
+                <dd><a href="#"><%= link_to 'Denver', city_path(id: "denver") %></a></dd>
                 <dt>New York</dt>
-                <dd><a href="#">New York City</a></dd>
+                <dd><a href="#"><%= link_to 'New York City', city_path(id: "new-york-city") %></a></dd>
                 <dt>Massachussetts</dt>
-                <dd><a href="#">Boston/Cambridge</a></dd>
+                <dd><a href="#"><%= link_to 'Boston/Cambridge', city_path(id: "boston-cambridge") %></a></dd>
               </dl>
             </div>
             <div class="span2">
@@ -39,81 +39,6 @@
   </div>
 </section>
 
-
-<div class='carousel slide over-something' id='homepage-carousel'>
-  <div class='carousel-inner slider-w'>
-    <div class='active item'>
-      <div class='container'>
-        <div class="row">
-          <div class="span12">
-            <h1 class='slider-header'><strong>Vensured</strong> Your one stop shop for all things start ups</h1>
-            <h2 class='slider-sub-header'>Start a company.  Get involved.  Stay connected.</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="span8">
-            <h3>Select Your City</h3>
-
-          </div>
-        </div>
-        <div class='cta'>
-          <i class="icon-plane huge">  </i>
-          <select class="input-xlarge">
-            <option>Choose a City</option>
-            <option>Denver</option>
-            <option>Boulder</option>
-            <option>Boston</option>
-          </select>
-          <br />
-          <%= link_to "Get Started Today", '#', class: "btn btn-cta" %>
-        </div>
-        <div class='slider-browsers-w clearfix'>
-          <div class='slider-browser slider-browser-left hidden-phone' data-position-bottom='-8%'>
-            <%= image_tag 'browser-window.png' %>
-          </div>
-          <div class='slider-browser slider-browser-center' data-position-bottom='-9%'>
-            <%= image_tag 'browser-window.png' %>
-          </div>
-          <div class='slider-browser slider-browser-right hidden-phone' data-position-bottom='-8%'>
-            <%= image_tag 'browser-window.png' %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='item'>
-      <div class='container'>
-        <h1 class='slider-header'>I am always on skype, feel free to ask questions.</h1>
-        <h2 class='slider-sub-header'>Maecenas fermentum sem in nunc sagittis iaculis.</h2>
-        <div class='cta'>
-          <a href="features/pricing_tables.html" class="btn btn-cta btn-warning">Some Action Button</a>
-        </div>
-        <div class='row zoomed-browsers-w'>
-          <div class='span4'>
-            <div class='zoomed-browser'>
-              <img alt="Browser-window-1" src="//assets/images/browser-window.png" />
-            </div>
-          </div>
-          <div class='span4'>
-            <div class='zoomed-browser hidden-phone'>
-              <img alt="Browser-window-2" src="//assets/images/browser-window.png" />
-            </div>
-          </div>
-          <div class='span4'>
-            <div class='zoomed-browser hidden-phone'>
-              <img alt="Browser-window-3" src="//assets/images/browser-window.png" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class='carousel-control left' data-slide='prev' href='#homepage-carousel'>
-    <i class='icon-chevron-left'></i>
-  </a>
-  <a class='carousel-control right' data-slide='next' href='#homepage-carousel'>
-    <i class='icon-chevron-right'></i>
-  </a>
-</div>
 <div class='sub-slider-features'>
   <div class='container'>
     <div class='row'>
