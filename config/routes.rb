@@ -3,6 +3,8 @@ Rails4bootstrap3backbone::Application.routes.draw do
 
   resources :users, only: [ :new, :create ]
 
+  resources :cities, only: [ :index, :show ]
+
   get '/account_confirmations', to: 'account_confirmations#create', as: 'account_confirmations'
 
   resource :resend_confirmation, only: [ :new, :create ]

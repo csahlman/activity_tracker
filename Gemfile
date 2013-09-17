@@ -57,6 +57,8 @@ group :test do
   # gem 'spring'
 end
 
+gem "friendly_id", git: 'git://github.com/norman/friendly_id.git', branch: '5.0-stable'
+
 gem 'annotate'
 
 gem 'websocket-rails'

@@ -5,6 +5,14 @@ GIT
   specs:
     database_cleaner (1.1.1)
 
+GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: 2d1dbe62eb92e4da129f813bf37e0f4ff3fba6d2
+  branch: 5.0-stable
+  specs:
+    friendly_id (5.0.0.rc2)
+      activerecord (~> 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -181,6 +189,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner!
   factory_girl_rails
+  friendly_id!
   jbuilder (~> 1.2)
   jquery-rails
   ngmin-rails (~> 0.4.0)
