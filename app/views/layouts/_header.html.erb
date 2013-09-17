@@ -83,23 +83,36 @@
             </li>
           </ul>
           <div class='top-account-control visible-desktop'>
-            <a href="features/pricing_tables.html" class="top-create-account">Create Account</a>
+            <% if user_signed_in? %>
+              <span class="top-sign-in">Welcome, <%= current_user.username %></span>
+              <%= link_to "Sign Out", sign_out_path, method: :delete,
+                class: "top-create-account" %>
+            <% else %>
+            <%= link_to "Create Account", new_user_path, class: "top-create-account" %>
             <a href="#" class="top-sign-in">Sign In</a>
             <div class='login-box'>
               <a class='close login-box-close' href='#'>&times;</a>
               <h4 class='login-box-head'>Login Form</h4>
-              <div class='control-group'>
-                <label>Username</label>
-                <input class='span2' placeholder='Input username...' type='text'>
-              </div>
-              <div class='control-group'>
-                <label>Password</label>
-                <input class='span2' placeholder='Input password...' type='text'>
-              </div>
-              <div class='login-actions'>
-                <button class='btn btn-primary'>Log Me In</button>
-              </div>
+              <%= form_tag('/sign_in', method: 'post') do %>
+                <div class="control-group">
+                  <label for="email">Email</label>
+                  <%= email_field :email, nil, id: "user_email", class: "span2" %>
+                </div>
+                <div class="control-group">
+                  <label for="password">Password</label>
+                  <%= password_field_tag :password, nil , id: "user_password", class: "span2" %>
+                </div>
+                <div class="login-actions">
+                  <%= button_tag "Sign In!", id: "form_sign_in", class:
+                    "btn btn-primary" %>
+                </div>
+
+              <% end %>
+
+              <%= link_to "Forgot Your Password?", new_password_reset_path %><br><br>
+              <%= link_to "Resend Confirmation Instructions", new_resend_confirmation_path %>
             </div>
+            <% end %>
           </div>
         </div>
       </div>

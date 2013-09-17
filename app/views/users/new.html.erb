@@ -1,9 +1,78 @@
-<%= simple_form_for @user do |f| %>
-  
-  <%= f.input :email, id: "user_email" %>
-  <%= f.input :password, id: "user_password" %>
-  <%= f.input :password_confirmation, id: "user_password_confirmation" %>
-  <%= f.input :remember_password %>
-
-  <%= f.button :submit, "Register!" %>
-<% end %>
+<div class="just-stripped">
+  <div class='container'>
+    <div class='row'>
+      <div class='span8 offset2'>
+        <section class='section-wrapper'>
+          <h3 class='section-header'>Create a New Account</h3>
+          <div class='white-card extra-padding'>
+            <%= simple_form_for @user, class: 'no-margin-bottom' do |f| %>
+              <fieldset>
+                <div class='row'>
+                  <div class='span7'>
+                    <legend>User Information</legend>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="span5">
+                    <div class="control-group">
+                      <%= f.label :username, "Username" %>
+                      <%= f.text_field :username, id: "user_username",
+                        class: "span4", placeholder: "Username..." %>
+                    </div>
+                    <div class="control-group">
+                      <%= f.label :email, "Email" %>
+                      <%= f.text_field :email, id: "user_email",
+                        class: "span4", placeholder: "Email..." %>
+                    </div>
+                    <div class="control-group">
+                      <%= f.label :password, "Password" %>
+                      <%= f.password_field :password, id: "user_password",
+                        class: "span4", placeholder: "Password..." %>
+                    </div>
+                    <div class="control-group">
+                      <%= f.label :password_confirmation, "Password Confirmation" %>
+                      <%= f.password_field :password_confirmation, id: "
+                        user_password_confirmation",
+                        class: "span4", placeholder: "Confirmation..." %>
+                    </div>
+<!--                   <div class='span3'>
+                    <div class='control-group'>
+                      <label>First Name</label>
+                      <input class='span3' placeholder='Input first name...' type='text'>
+                    </div>
+                    <div class='control-group'>
+                      <label>Last Name</label>
+                      <input class='span3' placeholder='Input last name...' type='text'>
+                    </div>
+                    <div class='control-group'>
+                      <label>Email Address</label>
+                      <input class='span3' placeholder='Input email address...' type='text'>
+                    </div>
+                    <div class='control-group'>
+                      <label>Twitter Username</label>
+                      <div class='input-prepend'>
+                        <span class='add-on'>@</span>
+                        <input class='span2' placeholder='Input username...' type='text'>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class='span2'>
+                  <div class='form-side-info'>
+                    <h4>Privacy</h4>
+                    <p>We won't email you unless you want us to.</p>
+                  </div>
+                </div>
+              </div>
+                <div class='form-actions no-margin-bottom'>
+                  <button class='btn btn-primary' type='submit'>Save Form</button>
+                  <button class='btn btn-gray' type='submit'>Cancel</button>
+                </div>
+              </fieldset>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

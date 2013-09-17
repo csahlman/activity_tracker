@@ -18,6 +18,7 @@
 //= require csrf
 //= require bootstrap.min
 //= require_tree ./controllers
+//= require soup
 
 
 

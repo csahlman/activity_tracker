@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917140818) do
+ActiveRecord::Schema.define(version: 20130917154927) do
 
   create_table "chatrooms", force: true do |t|
     t.string   "name"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20130917140818) do
     t.datetime "confirmed_at"
     t.datetime "password_reset_sent_at"
     t.string   "password_reset_token"
+    t.string   "username"
   end
+
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

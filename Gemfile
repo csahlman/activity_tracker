@@ -54,6 +54,7 @@ group :test do
   gem "capybara-webkit"
   gem 'database_cleaner', git: 'git://github.com/bmabey/database_cleaner.git', branch: "master"
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
   # gem 'spring'
 end
 

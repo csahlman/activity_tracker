@@ -12,6 +12,7 @@
 #  confirmed_at           :datetime
 #  password_reset_sent_at :datetime
 #  password_reset_token   :string(255)
+#  username               :string(255)
 #
 
 require 'spec_helper'
